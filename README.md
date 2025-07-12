@@ -130,10 +130,16 @@ Jest is configured with:
 
 ### Git Hooks
 
-Pre-commit hooks automatically:
-- Run ESLint with auto-fix
-- Format code with Prettier
-- Validate commit messages
+**Pre-commit hooks** automatically:
+- Run ESLint with auto-fix on staged files
+- Format code with Prettier on staged files
+- Validate commit messages using conventional commits
+
+**Pre-push hooks** automatically:
+- Run full ESLint checks on all source and test files
+- Execute complete Jest test suite
+- Check for outdated dependencies
+- Perform security audit checks
 
 ## Development Workflow
 
