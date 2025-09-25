@@ -76,7 +76,7 @@ npm run build
 - `npm run lint` - Run ESLint on source and test files
 - `npm run lint:fix` - Fix ESLint issues automatically
 - `npm run format` - Format code with Prettier
-- `npm run type-check` - Run TypeScript type checking without emitting files
+- `npm run type:check` - Run TypeScript type checking without emitting files
 
 ### Maintenance
 - `npm run audit:check` - Check for security vulnerabilities using audit-ci
