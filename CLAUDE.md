@@ -23,7 +23,7 @@ The project includes build tools, testing, linting, formatting, and CI/CD config
 - `npm run lint` - Run ESLint on source and test files
 - `npm run lint:fix` - Fix ESLint issues automatically
 - `npm run format` - Format code with Prettier
-- `npm run type-check` - Run TypeScript type checking without emitting files
+- `npm run type:check` - Run TypeScript type checking without emitting files
 
 **Maintenance:**
 - `npm run audit:check` - Check for security vulnerabilities using audit-ci
@@ -54,6 +54,17 @@ The project includes build tools, testing, linting, formatting, and CI/CD config
 - lint-staged for pre-commit file processing (package.json:53-62)
 - Commitlint with conventional commits
 - Prettier and ESLint integration with auto-fixing
+
+**Git Hooks Workflow:**
+- **Pre-commit**: Runs lint-staged which applies ESLint fixes and Prettier formatting to staged files
+- **Pre-push**: Runs full validation suite - lint, test, dependency check, and security audit
+- **Commit-msg**: Validates commit messages follow conventional commit format
+
+**ESLint Configuration:**
+- Uses flat config format (eslint.config.js) with TypeScript support
+- Strict rules including `no-console: error` and `@typescript-eslint/no-explicit-any: error`
+- Separate configuration for test files with Jest globals
+- Integrated with Prettier to avoid formatting conflicts
 
 **Package Structure:**
 - Main entry: `dist/index.js` (CommonJS)
