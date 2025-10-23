@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import globals from "globals";
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
@@ -7,14 +8,14 @@ export default [
   js.configs.recommended,
   {
     files: ['**/*.ts'],
-    env: {
-      node: true,
-    },
     languageOptions: {
       parser: tsparser,
       parserOptions: {
         ecmaVersion: 2022,
         sourceType: 'module',
+      },
+      globals: {
+        ...globals.node,
       },
     },
     plugins: {
@@ -33,8 +34,10 @@ export default [
   },
   {
     files: ['test/**/*.ts'],
-    env: {
-      jest: true,
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
     },
     rules: {
       // add here any rules specific to test files
