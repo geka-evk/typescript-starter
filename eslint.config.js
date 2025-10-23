@@ -7,22 +7,14 @@ export default [
   js.configs.recommended,
   {
     files: ['**/*.ts'],
+    env: {
+      node: true,
+    },
     languageOptions: {
       parser: tsparser,
       parserOptions: {
         ecmaVersion: 2022,
         sourceType: 'module',
-      },
-      globals: {
-        console: 'readonly',
-        process: 'readonly',
-        Buffer: 'readonly',
-        __dirname: 'readonly',
-        __filename: 'readonly',
-        global: 'readonly',
-        module: 'readonly',
-        require: 'readonly',
-        exports: 'readonly',
       },
     },
     plugins: {
@@ -41,18 +33,8 @@ export default [
   },
   {
     files: ['test/**/*.ts'],
-    languageOptions: {
-      globals: {
-        jest: 'readonly',
-        describe: 'readonly',
-        it: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
-        beforeEach: 'readonly',
-        afterEach: 'readonly',
-        beforeAll: 'readonly',
-        afterAll: 'readonly',
-      },
+    env: {
+      jest: true,
     },
     rules: {
       // add here any rules specific to test files
